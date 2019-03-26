@@ -22,6 +22,7 @@ class BladeSvgServiceProvider extends ServiceProvider
         $this->app->singleton(SvgFactory::class, function () {
 
             $config = Collection::make(config('blade-svg', []))->merge([
+                'svg_default' => config('blade-svg.svg_default'),
                 'spritesheet_path' => base_path(config('blade-svg.spritesheet_path')),
                 'svg_path' => base_path(config('blade-svg.svg_path', config('blade-svg.icon_path'))),
             ])->all();
